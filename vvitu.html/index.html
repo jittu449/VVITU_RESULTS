@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VVIT Results Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00416A, #E4E5E6);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #00416A;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #022f4a;
+        }
+
+        #photoSection {
+            margin-top: 20px;
+            display: none;
+        }
+
+        img {
+            width: 150px;
+            height: 180px;
+            border-radius: 8px;
+            border: 2px solid #00416A;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>VVITU Results Portal</h2>
+
+        <input type="text" id="roll" placeholder="Enter Roll Number">
+        <br>
+        <button onclick="showPhoto()">Submit</button>
+
+        <div id="photoSection">
+            <h3>Student Photo</h3>
+            <img id="studentPhoto" src="">
+        </div>
+    </div>
+
+<script>
+function showPhoto() {
+    let roll = document.getElementById("roll").value;
+    let photoSection = document.getElementById("photoSection");
+    let studentPhoto = document.getElementById("studentPhoto");
+
+    // Sample Data (You can add more)
+    let students = {
+        "21B81A0501": "https://i.pravatar.cc/150?img=1",
+        "21B81A0502": "https://i.pravatar.cc/150?img=2",
+        "21B81A0503": "https://i.pravatar.cc/150?img=3"
+    };
+
+    if(students[roll]) {
+        studentPhoto.src = students[roll];
+        photoSection.style.display = "block";
+    } else {
+        alert("Roll Number Not Found!");
+    }
+    ;
+}
+</script>
+<script>
+function showPhoto() {
+    let roll = document.getElementById("roll").value;
+
+    if(roll.trim() === "") {
+        alert("Please enter Roll Number");
+        return;
+    }
+
+    let photoSection = document.getElementById("photoSection");
+    let studentPhoto = document.getElementById("studentPhoto");
+
+    // Your image file (same folder)
+    studentPhoto.src = "cheru.jpeg"; // Replace with actual image file name
+
+    photoSection.style.display = "block";
+}
+</script>
+
+</script>
+
+</body>
+</html>
